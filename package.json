@@ -1,0 +1,23 @@
+{
+  "name": "deploy-test-nodejs",
+  "version": "1.0.0",
+  "description": "Native Node.js taskboard fixture: node:http server, better-sqlite3 persistence, validated CRUD/search/filter, liveness/readiness.",
+  "private": true,
+  "type": "module",
+  "main": "src/index.js",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "dev": "node --watch src/index.js",
+    "start": "node src/index.js",
+    "check": "node --check src/config.js && node --check src/db.js && node --check src/app.js && node --check src/index.js && node --check public/app.js",
+    "test": "node --test tests/*.test.js",
+    "smoke": "bash scripts/smoke.sh",
+    "verify": "bash scripts/verify.sh"
+  },
+  "dependencies": {
+    "better-sqlite3": "^13.0.3"
+  }
+}
